@@ -26,6 +26,7 @@ export default function App() {
   }));
 
   const [selectedModel, setSelectedModel] = useState(catalog[0]);
+  const [restartKey, setRestartKey] = useState(0);
   const [catalogOpen, setCatalogOpen] = useState(false);
   const [catalogView, setCatalogView] = useState<'catalog' | 'description'>('catalog');
   const [gestureHelpOpen, setGestureHelpOpen] = useState(false);
@@ -93,6 +94,7 @@ export default function App() {
             modelUrl={selectedModel.modelUrl}
             hasAnimation={selectedModel.hasAnimation}
             gesturesActive={gesturesActive}
+            restartKey={restartKey}
           />
 
         <button
@@ -216,6 +218,15 @@ export default function App() {
               Vista
             </button>
           )}
+          <button
+            className="restart-button"
+            type="button"
+            aria-label="Reiniciar vista del modelo"
+            title="Reiniciar vista del modelo"
+            onClick={() => setRestartKey((key) => key + 1)}
+          >
+            <span aria-hidden="true">⟳</span>
+          </button>
         </section>
       </main>
       {gestureHelpOpen && createPortal(

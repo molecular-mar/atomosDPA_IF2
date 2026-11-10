@@ -5,7 +5,7 @@ import { handStore, LANDMARK_COUNT } from '../../hooks/handStore';
 const W = 320;
 const H = 240;
 /** Ancho del recuadro en escritorio (px). En móvil lo fija App.css. */
-const PREVIEW_WIDTH = 240;
+const PREVIEW_WIDTH = 96;
 
 // Conexiones de la mano en MediaPipe (índices de los 21 landmarks).
 const CONNECTIONS: [number, number][] = [

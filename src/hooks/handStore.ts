@@ -91,9 +91,12 @@ export function resetHandStore() {
   handStore.dragOffset.y = 0;
 }
 
-/** Al cambiar de modelo: zoom a 1 y sin giro pendiente. */
+/** Restore the model's view and clear any in-progress hand transform. */
 export function resetModelTransform() {
   handStore.zoomLevel = 1;
   handStore.rotationAccum.x = 0;
   handStore.rotationAccum.y = 0;
+  handStore.grabbing = false;
+  handStore.dragOffset.x = 0;
+  handStore.dragOffset.y = 0;
 }

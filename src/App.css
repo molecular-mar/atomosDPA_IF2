@@ -533,7 +533,7 @@
   right: 50%;
   bottom: max(18px, env(safe-area-inset-bottom));
   display: grid;
-  grid-template-columns: minmax(150px, 1fr) auto auto;
+  grid-template-columns: minmax(150px, 1fr) auto auto auto;
   align-items: center;
   gap: 12px;
   width: min(700px, calc(100% - 36px));
@@ -629,6 +629,30 @@
 
 .preview-toggle.is-active {
   border-color: var(--app-green);
+  color: var(--app-green);
+}
+
+.restart-button {
+  display: inline-grid;
+  place-items: center;
+  grid-column: 4;
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid #29554e;
+  border-radius: 6px;
+  background: rgba(5, 13, 12, 0.8);
+  color: var(--app-accent);
+  font: inherit;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 140ms ease, color 140ms ease;
+}
+
+.restart-button:hover {
+  background: #10332d;
   color: var(--app-green);
 }
 
@@ -746,7 +770,7 @@
   .bottom-dock {
     right: 12px;
     bottom: max(12px, env(safe-area-inset-bottom));
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) auto auto;
     gap: 9px 12px;
     width: calc(100% - 24px);
     min-height: 100px;
@@ -772,6 +796,13 @@
     padding: 0 12px !important;
   }
 
+  .restart-button {
+    grid-column: 3;
+    width: 44px;
+    min-width: 44px;
+    height: 40px;
+  }
+
   .preview-toggle {
     justify-self: end;
     min-height: 40px;
@@ -780,7 +811,7 @@
   .hand-preview {
     right: 12px !important;
     bottom: 130px !important;
-    width: min(280px, calc(100% - 24px)) !important;
+    width: min(112px, calc(100% - 24px)) !important;
     padding: 8px !important;
   }
 }

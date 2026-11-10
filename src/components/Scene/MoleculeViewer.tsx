@@ -15,6 +15,8 @@ interface MoleculeViewerProps {
   hasAnimation?: boolean;
   /** Con gestos activos el mouse y el touch no controlan el modelo. */
   gesturesActive?: boolean;
+  /** Increment to restore the model and camera to their fitted starting view. */
+  restartKey?: number;
 }
 
 interface CanvasErrorBoundaryProps {
@@ -194,6 +196,7 @@ export default function MoleculeViewer({
   modelUrl = `${BASE}models/aspirin.glb`, 
   hasAnimation = false,
   gesturesActive = false,
+  restartKey = 0,
 }: MoleculeViewerProps) {
   const [readyModelUrl, setReadyModelUrl] = useState<string | null>(null);
   const modelReady = readyModelUrl === modelUrl;
@@ -214,7 +217,12 @@ export default function MoleculeViewer({
         {/* Carga diferida con Suspense */}
         <Suspense fallback={<LoadingFallback />}>
           <Bounds fit clip observe margin={1.3}>
-            <HandGestureGroup active={gesturesActive} resetKey={modelUrl} onModelReady={setReadyModelUrl}>
+            <HandGestureGroup
+              key={restartKey}
+              active={gesturesActive}
+              resetKey={modelUrl}
+              onModelReady={setReadyModelUrl}
+            >
               {/* Flotación decorativa solo sin gestos: con gestos el centro debe ser estable. */}
               <IdleFloat enabled={!gesturesActive}>
                 <CanvasErrorBoundary modelUrl={modelUrl} fallback={<ProceduralMolecule />}>
