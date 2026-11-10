@@ -159,4 +159,11 @@ git push origin mi-nueva-funcion
 
 ## 🏛️ Créditos e Institución
 
+Devs:
+
+- Marcos Rivera Almazo
+- Juan Hernández Tecorralco
+- Luis Eduardo Rivera Guerrero
+- Gonzalo Ezequiel Alemany Duarte
+
 Proyecto creado para la divulgación científica en el **Instituto de Física de la UNAM (IF-UNAM)** para el evento **Día de Puertas Abiertas 2026**.
