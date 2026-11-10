@@ -10,7 +10,18 @@ El objetivo de esta herramienta es acercar la ciencia al público general y a la
 
 * **Framework Web:** React + TypeScript (impulsado por [Vite](https://vitejs.dev/))
 * **Visualización 3D:** Three.js / React Three Fiber
-* **Despliegue:** GitHub Pages (automatizado vía GitHub Actions)
+* **Despliegue:** Cloudflare Pages (integrado con GitHub)
+
+## Despliegue en Cloudflare Pages
+
+Conecta este repositorio en Cloudflare Pages y configura:
+
+* **Production branch:** `main`
+* **Build command:** `npm run build`
+* **Build output directory:** `dist`
+* **Root directory:** `/`
+
+No configures un comando de despliegue con Wrangler: Cloudflare Pages publica `dist` al terminar la compilación. El dominio predeterminado de Pages termina en `pages.dev`; `workers.dev` corresponde a un Worker y requiere un proyecto de Workers, no de Pages.
 
 ---
 

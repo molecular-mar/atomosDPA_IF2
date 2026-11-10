@@ -10,8 +10,7 @@ interface UserConfig extends ViteUserConfig {
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // IMPORTANT: Replace with the exact GitHub repository name
-  base: '/atomosDPA_IF/',
+  base: '/',
   test: {
     globals: true,
     environment: 'jsdom',
