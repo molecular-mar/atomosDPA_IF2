@@ -251,6 +251,33 @@
   stroke: none;
 }
 
+.header-infographic-link {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 21px;
+  height: 21px;
+  border: 1.5px solid var(--app-muted);
+  border-radius: 50%;
+  color: var(--app-muted);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  transition: color 140ms ease, border-color 140ms ease, background 140ms ease;
+}
+
+.header-infographic-link:hover {
+  border-color: var(--app-accent);
+  background: rgba(18, 198, 189, 0.1);
+  color: var(--app-accent);
+}
+
+.header-infographic-link:focus-visible {
+  outline: 2px solid var(--app-accent);
+  outline-offset: 3px;
+}
+
 .header-mark {
   display: block;
   flex: none;

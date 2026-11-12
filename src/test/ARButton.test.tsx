@@ -65,7 +65,7 @@ describe('ARButton Component', () => {
       value: () => ({ x: 0.4, y: 0.8, z: 0.3 }),
     });
     fireEvent.load(viewer);
-    await waitFor(() => expect(viewer.scale).toBe('0.3125 0.3125 0.3125'));
+    await waitFor(() => expect(viewer.scale).toBe('0.625 0.625 0.625'));
     expect(screen.queryByRole('button', { name: /Postal 3D/i })).toBeNull();
   });
 

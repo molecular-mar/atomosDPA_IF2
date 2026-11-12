@@ -49,9 +49,9 @@ interface ARButtonProps {
 }
 
 const SCALE_PRESETS = [
-  { label: 'Compacto (~15 cm)', short: '15 cm', value: 0.15 },
-  { label: 'Mesa (~25 cm)', short: '25 cm', value: 0.25 },
-  { label: 'Mediano (~45 cm)', short: '45 cm', value: 0.45 },
+  { label: 'Compacto (~25 cm)', short: '25 cm', value: 0.25 },
+  { label: 'Mesa (~50 cm)', short: '50 cm', value: 0.5 },
+  { label: 'Grande (~100 cm)', short: '100 cm', value: 1 },
 ];
 
 export default function ARButton({

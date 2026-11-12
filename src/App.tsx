@@ -73,6 +73,16 @@ export default function App() {
               <circle className="instagram-dot" cx="17.5" cy="6.5" r="1" />
             </svg>
           </a>
+          <a
+            className="header-infographic-link"
+            href={`${BASE}Anatomia_Materia_DPA26.png`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Abrir infografía Anatomía de la materia en una pestaña nueva"
+            title="Infografía: Anatomía de la materia"
+          >
+            <span aria-hidden="true">?</span>
+          </a>
         </div>
         <a
           className="header-logo-link"
