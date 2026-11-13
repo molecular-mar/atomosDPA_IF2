@@ -24,7 +24,6 @@ const CATEGORY_ORDER = [
   'Nanopartículas',
   'Fragmentos Cristalinos',
   'Biomoléculas',
-  'Superficies/Materiales',
 ];
 
 export default function App() {

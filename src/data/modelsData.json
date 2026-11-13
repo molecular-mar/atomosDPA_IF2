@@ -106,14 +106,5 @@
     "chemicalFormula": "C10H12N2O",
     "modelUrl": "/models/serotonina.glb",
     "hasAnimation": false
-  },
-  {
-    "id": "materiales",
-    "name": "Superficies y Materiales (PBR)",
-    "category": "Superficies/Materiales",
-    "description": "Una matriz visual que muestra cómo interactúan los materiales con la luz. Desde metales brillantes y pulidos hasta superficies rugosas y plásticos mates.",
-    "chemicalFormula": "No aplica",
-    "modelUrl": "/models/materiales.glb",
-    "hasAnimation": false
   }
 ]
