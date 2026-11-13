@@ -19,13 +19,25 @@ const BASE = import.meta.env.BASE_URL.endsWith('/')
 const normalizeModelUrl = (url: string) =>
   `${BASE}${url.replace(/^\/+/, '')}`;
 
-export default function App() {
-  const catalog = modelsData.map((item) => ({
-    ...item,
-    modelUrl: normalizeModelUrl(item.modelUrl),
-  }));
+const CATEGORY_ORDER = [
+  'Pequeñas Moléculas',
+  'Nanopartículas',
+  'Fragmentos Cristalinos',
+  'Biomoléculas',
+  'Superficies/Materiales',
+];
 
-  const [selectedModel, setSelectedModel] = useState(catalog[0]);
+export default function App() {
+  const catalog = modelsData
+    .map((item) => ({
+      ...item,
+      modelUrl: normalizeModelUrl(item.modelUrl),
+    }))
+    .sort((a, b) => CATEGORY_ORDER.indexOf(a.category) - CATEGORY_ORDER.indexOf(b.category));
+
+  const [selectedModel, setSelectedModel] = useState(
+    catalog.find((item) => item.id === 'cafeina') ?? catalog[0],
+  );
   const [restartKey, setRestartKey] = useState(0);
   const [catalogOpen, setCatalogOpen] = useState(false);
   const [catalogView, setCatalogView] = useState<'catalog' | 'description'>('catalog');

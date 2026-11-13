@@ -8,12 +8,30 @@ const BASE = import.meta.env.BASE_URL.endsWith('/')
   : `${import.meta.env.BASE_URL}/`;
 
 export const MODEL_VIEWER_URL = `${BASE}vendor/model-viewer-4.0.0.min.js`;
+export const MESHOPT_DECODER_URL = `${BASE}vendor/meshopt_decoder.js`;
+
+type ModelViewerStatic = CustomElementConstructor & {
+  meshoptDecoderLocation?: string;
+};
+
+type ModelViewerGlobal = Window & {
+  ModelViewerElement?: { meshoptDecoderLocation?: string };
+};
 
 let pending: Promise<void> | null = null;
 
 /** Registra <model-viewer> (una sola vez). Si falla, el siguiente intento vuelve a descargarlo. */
 export function loadModelViewer(): Promise<void> {
-  if (customElements.get('model-viewer')) return Promise.resolve();
+  const ModelViewer = customElements.get('model-viewer') as ModelViewerStatic | undefined;
+  if (ModelViewer) {
+    ModelViewer.meshoptDecoderLocation = MESHOPT_DECODER_URL;
+    return Promise.resolve();
+  }
+
+  const modelViewerGlobal = window as ModelViewerGlobal;
+  modelViewerGlobal.ModelViewerElement ??= {};
+  modelViewerGlobal.ModelViewerElement.meshoptDecoderLocation = MESHOPT_DECODER_URL;
+
   pending ??= new Promise<void>((resolve, reject) => {
     const script = document.createElement('script');
     script.type = 'module';

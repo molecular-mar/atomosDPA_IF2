@@ -6,7 +6,7 @@
 // No se instala con npm porque su peerDependency de three.js no es compatible con la del proyecto.
 // Se ejecuta automáticamente antes de `npm run dev` y `npm run build`.
 import { createHash } from 'node:crypto';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
@@ -19,8 +19,14 @@ const SOURCES = [
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dest = path.join(root, `public/vendor/model-viewer-${VERSION}.min.js`);
+const decoderSrc = path.join(root, 'node_modules/meshoptimizer/meshopt_decoder.js');
+const decoderDest = path.join(root, 'public/vendor/meshopt_decoder.js');
 
 const sha256 = (buf) => createHash('sha256').update(buf).digest('hex');
+
+await mkdir(path.dirname(decoderDest), { recursive: true });
+await copyFile(decoderSrc, decoderDest);
+console.log('[model-viewer] Decodificador Meshopt sincronizado.');
 
 const current = await readFile(dest).catch(() => null);
 if (current && sha256(current) === SHA256) {
